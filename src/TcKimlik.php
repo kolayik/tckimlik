@@ -24,7 +24,7 @@ class TcKimlik
         
         $odd = $tcno[0] + $tcno[2] + $tcno[4] + $tcno[6] + $tcno[8];
         $even = $tcno[1] + $tcno[3] + $tcno[5] + $tcno[7];
-        $digit10 = ($odd * 7 - $even) % 10;
+        $digit10 = abs($odd * 7 - $even) % 10;
         $total = ($odd + $even + $tcno[9]) % 10;
 
         if ($digit10 != $tcno[9] ||  $total != $tcno[10]) {

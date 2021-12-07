@@ -3,7 +3,7 @@
 ## Yükleme
 composer üzerinden:
 ```
-composer require epigra/tckimlik
+composer require kolayik/tckimlik
 ````
 demeniz yeterli olacaktır.
 
