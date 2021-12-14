@@ -9,25 +9,18 @@ class TcKimlik
     public static function verify($input)
     {
         $tcno = $input;
-        if (is_array($input) && !empty($input['tcno'])) {
-            $tcno = $input['tcno'];
-        }
+        if(is_array($input)) $tcno = $input['tcno'] ?? '';
 
-        if (is_array($tcno)) {
-            $inputKeys = array_keys($tcno);
-            $tcno = $input[$inputKeys[0]];
-        }
-
-        if (!preg_match('/^[1-9]{1}[0-9]{9}[0,2,4,6,8]{1}$/', $tcno)) {
+        if(!preg_match('/^[1-9]{1}[0-9]{9}[0,2,4,6,8]{1}$/', $tcno)){
             return false;
         }
-        
+
         $odd = $tcno[0] + $tcno[2] + $tcno[4] + $tcno[6] + $tcno[8];
         $even = $tcno[1] + $tcno[3] + $tcno[5] + $tcno[7];
-        $digit10 = abs($odd * 7 - $even) % 10;
-        $total = ($odd + $even + $tcno[9]) % 10;
+        $digit10 = abs(($odd * 7) + ($even * 9)) % 10;
+        $digit11 = abs($odd * 8) % 10;
 
-        if ($digit10 != $tcno[9] ||  $total != $tcno[10]) {
+        if ($digit10 != $tcno[9] || $digit11 != $tcno[10]){
             return false;
         }
 

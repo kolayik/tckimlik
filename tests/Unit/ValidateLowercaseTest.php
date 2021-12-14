@@ -1,6 +1,6 @@
 <?php
 
-namespace Epigra\Tests;
+namespace Epigra\Tests\Unit;
 
 use Epigra\Tests\TestCase;
 use Epigra\TcKimlik;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Epigra\Tests;
+namespace Epigra\Tests\Unit;
 
 use Epigra\Tests\TestCase;
 use Epigra\TcKimlik;
@@ -92,4 +92,28 @@ class ValidateAutoUppercaseTest extends TestCase {
 
 		$this->assertTrue($check);
 	}
+
+    /**
+     *
+     *@group Unit
+     **/
+    public function test_validate_existing_tc_number_1() {
+        $check = TcKimlik::verify([
+            'tcno' => '39040808192',
+        ]);
+
+        $this->assertTrue($check);
+    }
+
+    /**
+     *
+     *@group Unit
+     **/
+    public function test_validate_existing_tc_number_2() {
+        $check = TcKimlik::verify([
+            'tcno' => '15071700056',
+        ]);
+
+        $this->assertTrue($check);
+    }
 }
