@@ -9,7 +9,7 @@ class TcKimlik
     public static function verify($input)
     {
         $tcno = $input;
-        if(is_array($input)) $tcno = $input['tcno'] ?? '';
+        if(is_array($input)) $tcno = $input['tcno'] ?? $input[array_key_first($input)];
 
         if(!preg_match('/^[1-9]{1}[0-9]{9}[0,2,4,6,8]{1}$/', $tcno)){
             return false;
